@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/scrollytelling-d3-react/static/js/main.891a7232.chunk.js",
-    "main.js.map": "/scrollytelling-d3-react/static/js/main.891a7232.chunk.js.map",
+    "main.js": "/scrollytelling-d3-react/static/js/main.d69d594a.chunk.js",
+    "main.js.map": "/scrollytelling-d3-react/static/js/main.d69d594a.chunk.js.map",
     "runtime~main.js": "/scrollytelling-d3-react/static/js/runtime~main.e2f8598a.js",
     "runtime~main.js.map": "/scrollytelling-d3-react/static/js/runtime~main.e2f8598a.js.map",
-    "static/js/2.1c499b88.chunk.js": "/scrollytelling-d3-react/static/js/2.1c499b88.chunk.js",
-    "static/js/2.1c499b88.chunk.js.map": "/scrollytelling-d3-react/static/js/2.1c499b88.chunk.js.map",
+    "static/js/2.b8c885b7.chunk.js": "/scrollytelling-d3-react/static/js/2.b8c885b7.chunk.js",
+    "static/js/2.b8c885b7.chunk.js.map": "/scrollytelling-d3-react/static/js/2.b8c885b7.chunk.js.map",
     "index.html": "/scrollytelling-d3-react/index.html",
-    "precache-manifest.a7a6b933d94e6eb95cb76b252b5c46c0.js": "/scrollytelling-d3-react/precache-manifest.a7a6b933d94e6eb95cb76b252b5c46c0.js",
+    "precache-manifest.165114ad9fb097167f3fc3f4a7f47027.js": "/scrollytelling-d3-react/precache-manifest.165114ad9fb097167f3fc3f4a7f47027.js",
     "service-worker.js": "/scrollytelling-d3-react/service-worker.js"
   }
 }

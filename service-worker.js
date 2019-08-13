@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/scrollytelling-d3-react/precache-manifest.a7a6b933d94e6eb95cb76b252b5c46c0.js"
+  "/scrollytelling-d3-react/precache-manifest.165114ad9fb097167f3fc3f4a7f47027.js"
 );
 
 self.addEventListener('message', (event) => {
