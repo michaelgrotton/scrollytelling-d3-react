@@ -5,6 +5,7 @@ import nyc from "./nyc.js"
 import sf from "./sf.js"
 import am from "./am.js"
 import BarChart from "./BarChart.js"
+require('intersection-observer');
 
 const styles = {
   graphic: {
@@ -41,13 +42,6 @@ const styles = {
   },
   scroller: {
     flexBasis:"30%"
-  },
-  offset: {
-    borderTop:"2px dashed black",
-    marginTop:"32vh",
-    position:"fixed",
-    zIndex:"1",
-    width:"100%"
   },
   title: {
     margin:"20px 0",
@@ -104,8 +98,8 @@ class App extends React.Component {
 
   onStepEnter = ({ element, data, direction }) => {
     this.setState({ city: data });
-    element.style.backgroundColor = 'lightgoldenrodyellow';
-    element.style.border = '2px solid gold';
+    element.style.backgroundColor = '#85e085';
+    element.style.border = '2px solid green';
   }
 
   onStepExit = ({ element, data, direction }) => {
@@ -122,7 +116,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className={classes.offset}>trigger line</div>
         <div className={classes.description}>
           Scrollytelling is a technique used to make changes to a graphic or other ui component as a reader scrolls down a page.
           In this example, I use <a href="https://github.com/jsonkao/react-scrollama">Jason Kao's</a> React interface of the Scrollama library by <a href="https://github.com/russellgoldenberg/scrollama">Russell Goldenberg</a>, to alter a line graph
@@ -134,7 +127,7 @@ class App extends React.Component {
             <BarChart width={screenWidth} height={screenHeight} data={city ? this.state.temps[city] : {} } />
           </div>
           <div className={classes.scroller}>
-            <Scrollama onStepEnter={this.onStepEnter} offset={.33} onStepExit={this.onStepExit}>
+            <Scrollama onStepEnter={this.onStepEnter} offset={.33} onStepExit={this.onStepExit} debug={true}>
               {cities.map(city => {
                 return(
                   <Step data={city} key={city}>
