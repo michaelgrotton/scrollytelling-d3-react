@@ -1,11 +1,10 @@
 import React from 'react';
 import injectSheet from "react-jss";
-import { Scrollama, Step } from "react-scrollama";
+import { Waypoint } from "react-waypoint";
 import nyc from "./nyc.js"
 import sf from "./sf.js"
 import am from "./am.js"
 import BarChart from "./BarChart.js"
-require('intersection-observer');
 
 const styles = {
   graphic: {
@@ -59,6 +58,12 @@ const styles = {
     },
     description: {
       padding:"100px 250px"
+    },
+    triggerTop: {
+      borderTop:"1px dashed black",
+      marginTop: "33vh",
+      position:"fixed",
+      width:"100%"
     }
   }
 }
@@ -96,18 +101,21 @@ class App extends React.Component {
     this.setState({screenWidth, screenHeight})
   }
 
-  onStepEnter = ({ element, data, direction }) => {
-    this.setState({ city: data });
-    element.style.backgroundColor = '#85e085';
-    element.style.border = '2px solid green';
+  onStepEnter = (city, {currentPosition, previousPosition}) => {
+    this.setState({city})
+    const el = document.querySelector(`#waypoint-${city}`)
+    el.style.backgroundColor = '#85e085';
+    el.style.border = "2px solid green"
   }
 
-  onStepExit = ({ element, data, direction }) => {
-    if(data === "nyc" && direction === "up") {
-      this.setState({ city: ""});
+  onStepExit = (city, {currentPosition, previousPosition}) => {
+    if( city === "nyc" && currentPosition === "below") {
+      this.setState({city: ""})
     }
-    element.style.backgroundColor = 'whitesmoke';
-    element.style.border = '2px solid grey';
+
+    const el = document.querySelector(`#waypoint-${city}`)
+    el.style.backgroundColor = 'whitesmoke';
+    el.style.border = "2px solid grey"
   }
 
   render() {
@@ -116,9 +124,10 @@ class App extends React.Component {
 
     return (
       <div>
+        <div className={classes.triggerTop}>trigger</div>
         <div className={classes.description}>
           Scrollytelling is a technique used to make changes to a graphic or other ui component as a reader scrolls down a page.
-          In this example, I use <a href="https://github.com/jsonkao/react-scrollama">Jason Kao's</a> React interface of the Scrollama library by <a href="https://github.com/russellgoldenberg/scrollama">Russell Goldenberg</a>, to alter a line graph
+          In this example, I use <a href="https://www.npmjs.com/package/react-waypoint">react-waypoint</a>, a React interface of the <a href="http://imakewebthings.com/waypoints/">waypoints library</a>, to alter a line graph
           of weather data built with D3.js as you scroll. Try it out!
         </div>
         <div className={classes.container}>
@@ -127,20 +136,15 @@ class App extends React.Component {
             <BarChart width={screenWidth} height={screenHeight} data={city ? this.state.temps[city] : {} } />
           </div>
           <div className={classes.scroller}>
-            <Scrollama onStepEnter={this.onStepEnter} offset={.33} onStepExit={this.onStepExit} debug={true}>
-              {cities.map(city => {
-                return(
-                  <Step data={city} key={city}>
-                    <div className={classes.step}>
-                      {cityNames[city]} weather
-                    </div>
-                  </Step>
-                )
-              })}
-            </Scrollama>
+            {cities.map(city => {
+              return (
+                <Waypoint onEnter={((obj) => this.onStepEnter(city, obj))} onLeave={((obj) => this.onStepExit(city, obj))} scrollableAncestor={window} topOffset={"33%"} bottomOffset={"66%"} key={city}>
+                  <div id={`waypoint-${city}`} className={classes.step} key={city}>{cityNames[city]} weather</div>
+                </Waypoint>
+              )
+            })}
           </div>
         </div>
-
         <div style={{height:"600px"}}></div>
       </div>
     );
