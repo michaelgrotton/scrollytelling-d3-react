@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 const margin = { top: 20, right: 5, bottom: 20, left: 35 };
-const height = 400;
+const height = 300;
 
 class BarChart extends Component {
   state = {
