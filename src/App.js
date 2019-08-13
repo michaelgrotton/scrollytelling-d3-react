@@ -47,6 +47,12 @@ const styles = {
     padding:"0",
     fontSize:"25px"
   },
+  trigger: {
+    borderTop:"1px dashed black",
+    marginTop: "33vh",
+    position:"fixed",
+    width:"100%"
+  },
   "@media (min-width: 768px)": {
     container: {
       flexDirection:"row"
@@ -58,12 +64,6 @@ const styles = {
     },
     description: {
       padding:"100px 250px"
-    },
-    triggerTop: {
-      borderTop:"1px dashed black",
-      marginTop: "33vh",
-      position:"fixed",
-      width:"100%"
     }
   }
 }
@@ -124,7 +124,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className={classes.triggerTop}>trigger</div>
+        <div className={classes.trigger}>trigger</div>
         <div className={classes.description}>
           Scrollytelling is a technique used to make changes to a graphic or other ui component as a reader scrolls down a page.
           In this example, I use <a href="https://www.npmjs.com/package/react-waypoint">react-waypoint</a>, a React interface of the <a href="http://imakewebthings.com/waypoints/">waypoints library</a>, to alter a line graph
