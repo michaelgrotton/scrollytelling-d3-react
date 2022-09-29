@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://michaelgrotton.github.io/scrollytelling-d3-react",
   "dependencies": {
-    "d3": "^5.9.7",
+    "d3": "^7.6.1",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
