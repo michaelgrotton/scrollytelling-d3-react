@@ -9,7 +9,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-jss": "^8.6.1",
-    "react-scripts": "3.1.0",
+    "react-scripts": "5.0.1",
     "react-waypoint": "^9.0.2"
   },
   "scripts": {
